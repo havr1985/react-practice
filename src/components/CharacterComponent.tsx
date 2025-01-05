@@ -7,9 +7,8 @@ type CharacterProps = {
 };
 
 const CharacterComponent: FC<CharacterProps> = ({ character, children }) => {
-  console.log(children);
   return (
-    <li className="w-96 border rounded-2xl p-4 border-amber-400">
+    <>
       <div className="flex justify-between mb-4">
         <img src={character.photo} alt={character.name} className="w-32 h-48" />
         <div>
@@ -20,7 +19,7 @@ const CharacterComponent: FC<CharacterProps> = ({ character, children }) => {
         </div>
       </div>
       <p className="text-xs">{children}</p>
-    </li>
+    </>
   );
 };
 
