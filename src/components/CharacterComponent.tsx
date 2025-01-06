@@ -6,7 +6,7 @@ type CharacterProps = {
   children: string;
 };
 
-const CharacterComponent: FC<CharacterProps> = ({ character, children }) => {
+export const CharacterComponent: FC<CharacterProps> = ({ character, children }) => {
   return (
     <>
       <div className="flex justify-between mb-4">
@@ -22,5 +22,3 @@ const CharacterComponent: FC<CharacterProps> = ({ character, children }) => {
     </>
   );
 };
-
-export default CharacterComponent;
