@@ -10,7 +10,7 @@ const TodoComponent: FC<TodoPropsType> = ({ todo }) => {
     <div>
       <p>Todo Id: {todo.id}</p>
       <p>User Id: {todo.userId}</p>
-      <p>Title: {todo.title}</p>
+      <p>Title: {todo.todo}</p>
       <p>Status: {todo.completed ? 'completed' : 'active'}</p>
     </div>
   );

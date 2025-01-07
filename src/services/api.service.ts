@@ -1,5 +1,5 @@
-import { ITodo } from '../models/task.model.ts';
+import { IData } from '../models/task.model.ts';
 
-export const getTodos = async (): Promise<ITodo[]> => {
+export const getTodos = async (): Promise<IData> => {
   return await fetch(import.meta.env.VITE_API_URL).then((res) => res.json());
 };

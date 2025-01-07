@@ -7,9 +7,8 @@ const TodoComponents: FC = () => {
   const [todos, setTodos] = useState<ITodo[]>([]);
   useEffect(() => {
     const fetchData = async () => {
-      const todos = await getTodos();
-      console.log(todos);
-      setTodos(todos);
+      const data = await getTodos();
+      setTodos(data.todos);
     };
     fetchData();
   }, []);
