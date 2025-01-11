@@ -29,7 +29,7 @@ export const CartsList = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <>
+        <div className="my-4 text-center">
           {!carts.length && <div className="text-3xl font-bold'">User hasn't carts yet</div>}
           <ul>
             {carts.map((cart) => (
@@ -38,7 +38,7 @@ export const CartsList = () => {
               </li>
             ))}
           </ul>
-        </>
+        </div>
       )}
     </>
   );
