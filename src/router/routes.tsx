@@ -1,16 +1,19 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Layout } from '../layouts/Layout.tsx';
-import { HomePage } from '../pages/HomePage.tsx';
 import { UsersPage } from '../pages/UsersPage.tsx';
 import { PostsPage } from '../pages/PostsPage.tsx';
+import { CartsList } from '../components/catrs/carts-list/CartsList.tsx';
 
 export const routes = createBrowserRouter([
   {
-    path: '',
+    path: '/',
     element: <Layout />,
     children: [
-      { index: true, element: <HomePage /> },
-      { path: 'users', element: <UsersPage /> },
+      {
+        path: '/',
+        element: <UsersPage />,
+        children: [{ path: 'cards/:id', element: <CartsList /> }]
+      },
       { path: 'posts', element: <PostsPage /> }
     ]
   }

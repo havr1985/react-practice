@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { IUser } from '../../../models/IUser.ts';
 import { getAllUsers } from '../../../api/api.service.ts';
 import { UserItemComponent } from '../user-item/UserItemComponent.tsx';
+import { NavLink, Outlet } from 'react-router-dom';
 
 export const UserListComponent = () => {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -23,13 +24,23 @@ export const UserListComponent = () => {
       {isLoading ? (
         <div>Loading...</div>
       ) : (
-        <ul className="flex flex-wrap gap-5 justify-center my-5">
-          {users.map((user) => (
-            <li key={user.id} className="border border-green-800 rounded-2xl w-[450px] px-2">
-              <UserItemComponent user={user} />
-            </li>
-          ))}
-        </ul>
+        <div className="flex justify-between">
+          <ul className="flex flex-col gap-5 justify-center my-5">
+            {users.map((user) => (
+              <NavLink
+                to={`cards/${user.id}`}
+                key={user.id}
+                className={({ isActive }) => (isActive ? 'text-green-500' : '')}>
+                <li className="border border-green-800 rounded-2xl w-[450px] px-2">
+                  <UserItemComponent user={user} />
+                </li>
+              </NavLink>
+            ))}
+          </ul>
+          <div className="my-5">
+            <Outlet />
+          </div>
+        </div>
       )}
     </>
   );
