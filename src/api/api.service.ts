@@ -1,17 +1,19 @@
-import { IUser } from '../models/IUser.ts';
-import { IPost } from '../models/IPost.ts';
 import { ICart } from '../models/IUserCart.ts';
+import { IUserResponse } from '../models/IUserResponse.ts';
+import { IPostResponse } from '../models/IPostResponse.ts';
 
-export const getAllUsers = async (): Promise<IUser[]> => {
-  return await fetch(import.meta.env.VITE_API_URL + 'users')
-    .then((res) => res.json())
-    .then((json) => json.users);
+export const getAllUsers = async (page: number, limit: number): Promise<IUserResponse> => {
+  const skip = (page - 1) * limit;
+  return await fetch(import.meta.env.VITE_API_URL + `users?skip=${skip}&limit=${limit}`).then(
+    (res) => res.json()
+  );
 };
 
-export const getAllPost = async (): Promise<IPost[]> => {
-  return await fetch(import.meta.env.VITE_API_URL + 'posts')
-    .then((res) => res.json())
-    .then((json) => json.posts);
+export const getAllPost = async (page: number, limit: number): Promise<IPostResponse> => {
+  const skip = (page - 1) * limit;
+  return await fetch(import.meta.env.VITE_API_URL + `posts?skip=${skip}&limit=${limit}`).then(
+    (res) => res.json()
+  );
 };
 
 export const getCartsByUserId = async (userId: number): Promise<ICart[]> => {

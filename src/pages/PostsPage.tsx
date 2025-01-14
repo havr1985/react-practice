@@ -1,9 +1,11 @@
 import { PostsListComponent } from '../components/posts/posts-list/PostsListComponent.tsx';
 
-export const PostsPage = () => {
+const PostsPage = () => {
   return (
     <div>
       <PostsListComponent />
     </div>
   );
 };
+
+export default PostsPage;

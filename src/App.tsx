@@ -1,9 +1,10 @@
 import './App.css';
+import { Routes } from './router/Routes.tsx';
 
 function App() {
   return (
     <>
-      <p className={'bg-amber-500'}>Hello</p>
+      <Routes />
     </>
   );
 }

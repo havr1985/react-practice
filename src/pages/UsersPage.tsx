@@ -1,5 +1,7 @@
 import { UserListComponent } from '../components/users/user-list/UserListComponent.tsx';
 
-export const UsersPage = () => {
+const UsersPage = () => {
   return <UserListComponent />;
 };
+
+export default UsersPage;
